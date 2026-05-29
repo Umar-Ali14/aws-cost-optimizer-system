@@ -109,11 +109,11 @@ Lambda performs:
   "status": "IDLE - WASTING COST 💸",
   "action": "STOP or ALERT",
   "timestamp": "2026-05-29 17:52:57"
-}                                                                                                                                                                                                                                                         🚀 Key Learnings
+}                                                                                                                          🚀 Key Learnings
 Built event-driven serverless architecture on AWS
 Learned real-time monitoring using CloudWatch
 Implemented automation using AWS Lambda
 Understood cloud cost optimization strategies (FinOps basics)
-                                                                                                                             🏁 Conclusion
+🏁 Conclusion
 
-This project demonstrates a production-style AWS architecture for detecting and handling idle EC2 instances. It simulates real-world cost optimization systems used in cloud engineering environments.                                     
+This project demonstrates a production-style AWS architecture for detecting and handling idle EC2 instances. It simulates real-world cost optimization systems used in cloud engineering environments.
