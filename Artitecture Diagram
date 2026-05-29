@@ -1,0 +1,86 @@
+AWS Cost Optimization System — Workflow (Simple Explanation)
+
+This project is an automated system that monitors EC2 instances and detects when they are wasting resources. It then logs the result automatically using AWS services.
+
+🧠 Step-by-Step Workflow
+1. EC2 Instances Running
+
+Amazon EC2
+
+You created multiple EC2 instances like:
+
+Idle Server
+Normal Server
+High Load Server
+
+These servers generate CPU usage data.
+
+2. CloudWatch Monitors CPU
+
+Amazon CloudWatch
+
+CloudWatch continuously watches EC2 performance metrics like:
+
+CPU usage
+Network activity
+Disk usage
+
+It checks CPU every 5 minutes.
+
+3. Alarm Condition is Set
+
+You defined a rule:
+
+If CPU utilization is less than 5%, the instance is considered IDLE.
+
+So CloudWatch compares:
+
+CPU value vs threshold
+
+When condition is true → alarm triggers.
+
+4. Lambda Function is Triggered
+
+AWS Lambda
+
+When the alarm goes into IN ALARM state, Lambda automatically runs.
+
+Lambda does:
+
+Reads CPU value from event
+Applies rule engine logic
+Decides instance status:
+IDLE (wasting cost)
+NORMAL (okay)
+HIGH LOAD (needs scaling)
+5. Decision Making (Rule Engine)
+
+Inside Lambda:
+
+CPU < 5% → IDLE → waste detected
+CPU 5–70% → NORMAL → no action
+CPU > 70% → HIGH LOAD → scaling needed
+6. Save Result to S3
+
+Amazon S3
+
+After decision, Lambda stores result in a JSON file inside S3 bucket.
+
+Each file contains:
+
+instance ID
+CPU value
+status (IDLE/NORMAL/HIGH)
+action taken
+timestamp
+📦 Final Output Example
+{
+  "instance_id": "ec2-idle-1",
+  "cpu": 3,
+  "status": "IDLE - WASTING COST 💸",
+  "action": "STOP or ALERT",
+  "timestamp": "2026-05-29 17:52:57"
+}
+🧩 Simple Summary (1 line)
+
+👉 EC2 generates data → CloudWatch monitors → Alarm triggers → Lambda decides → S3 stores result
