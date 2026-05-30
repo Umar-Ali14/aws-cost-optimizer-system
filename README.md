@@ -36,14 +36,13 @@ EC2 Instances → CloudWatch Metrics → CloudWatch Alarm → AWS Lambda → Ama
 ## ☁️ AWS Services Used
 
 ### 1. Amazon EC2
-:contentReference[oaicite:0]{index=0}  
+ 
 - Hosts virtual servers for testing idle, normal, and high-load scenarios  
 - Generates CPU utilization metrics used for monitoring  
 
 ---
 
-### 2. Amazon CloudWatch
-:contentReference[oaicite:1]{index=1}  
+### 2. Amazon CloudWatch 
 - Monitors EC2 CPU utilization in real time  
 - Creates alarms based on threshold rules  
 - Triggers automation when conditions are met  
@@ -51,7 +50,7 @@ EC2 Instances → CloudWatch Metrics → CloudWatch Alarm → AWS Lambda → Ama
 ---
 
 ### 3. AWS Lambda
-:contentReference[oaicite:2]{index=2}  
+ 
 - Executes serverless Python code when CloudWatch alarm triggers  
 - Implements rule engine logic for cost optimization  
 - Processes CPU usage and determines instance status  
@@ -59,7 +58,7 @@ EC2 Instances → CloudWatch Metrics → CloudWatch Alarm → AWS Lambda → Ama
 ---
 
 ### 4. Amazon S3
-:contentReference[oaicite:3]{index=3}  
+ 
 - Stores JSON logs of optimization decisions  
 - Maintains execution history for auditing and reporting  
 
